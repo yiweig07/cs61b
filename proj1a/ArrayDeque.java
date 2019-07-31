@@ -60,7 +60,7 @@ public class ArrayDeque<T> {
 	}
 
 	public boolean isEmpty() {
-		if (this.size() == 0) {
+		if (size == 0) {
 			return true;
 		}
 		return false;
@@ -71,7 +71,7 @@ public class ArrayDeque<T> {
 	}
 
 	public void printDeque() {
-		for (int i = 0; i < this.size(); i++) {
+		for (int i = 0; i < size; i++) {
 			System.out.println(this.get(i));
 		}
 	}
