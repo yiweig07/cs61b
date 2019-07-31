@@ -9,9 +9,9 @@ public class LinkedListDeque<T> {
 		public ListNode pre;
 
 		public ListNode(T item, ListNode rest, ListNode prev) {
-			value = item;
-			next = rest;
-			pre = prev;
+			this.value = item;
+			this.next = rest;
+			this.pre = prev;
 		}
 
 		public ListNode() {
@@ -32,12 +32,16 @@ public class LinkedListDeque<T> {
 	}
 
 	public void addFirst(T item) {
-		sentinel.next = new ListNode(item, sentinel.next, sentinel.next.pre);
+		ListNode first = new ListNode(item, sentinel.next, sentinel);
+		sentinel.next.pre = first;
+		sentinel.next = first;
 		size += 1;
 	}
 
 	public void addLast(T item) {
-		sentinel.pre = new ListNode(item, sentinel, sentinel.pre);
+		ListNode last = new ListNode(item, sentinel, sentinel.pre);
+		sentinel.pre.next = last;
+		sentinel.pre = last;
 		size += 1;
 	}
 
