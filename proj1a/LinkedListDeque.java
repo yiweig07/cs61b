@@ -1,4 +1,3 @@
-package cs61b;
 
 public class LinkedListDeque<T> {
 	ListNode sentinel;

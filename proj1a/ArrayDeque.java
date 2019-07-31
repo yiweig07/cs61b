@@ -1,6 +1,4 @@
-package cs61b;
 
-import cs61b.LinkedListDeque.ListNode;
 
 public class ArrayDeque<T> {
 	int size;
