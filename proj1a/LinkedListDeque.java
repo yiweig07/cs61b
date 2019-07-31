@@ -1,9 +1,9 @@
 
 public class LinkedListDeque<T> {
-	ListNode sentinel;
-	public int size;
+	private ListNode sentinel;
+	private int size;
 
-	public class ListNode {
+	private class ListNode {
 		public T value;
 		public ListNode next;
 		public ListNode pre;
@@ -15,17 +15,19 @@ public class LinkedListDeque<T> {
 		}
 
 		public ListNode() {
-			next = null;
-			pre = null;
+			value = (T) new Object();
+			next = this;
+			pre = this;
 		}
 	}
-
+   /**
 	public LinkedListDeque(T value) {
 		sentinel = new ListNode();
 		sentinel.next = new ListNode(value, sentinel, sentinel);
 		sentinel.pre = sentinel.next;
 		size = 1;
 	}
+	*/
 
 	public LinkedListDeque() {
 		sentinel = new ListNode();
@@ -101,7 +103,7 @@ public class LinkedListDeque<T> {
 		return t;
 	}
 	
-	public ListNode getnode(int index) {
+	private ListNode getnode(int index) {
 		if (index == 0) {
 			return sentinel.next;
 		}
