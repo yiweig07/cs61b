@@ -15,8 +15,6 @@ public class LinkedListDeque<T> {
 		}
 
 		public ListNode() {
-			next = this;
-			pre = this;
 		}
 	}
 
@@ -76,10 +74,10 @@ public class LinkedListDeque<T> {
 			return null;
 		}
 		size -= 1;
-		T last = sentinel.pre.value;
+		ListNode last = sentinel.pre;
 		sentinel.pre = sentinel.pre.pre;
 		sentinel.pre.next = sentinel;
-		return last;
+		return last.value;
 	}
 
 	public T get(int index) {
