@@ -15,7 +15,6 @@ public class LinkedListDeque<T> {
 		}
 
 		public ListNode() {
-			value = (T) new Object();
 			next = this;
 			pre = this;
 		}

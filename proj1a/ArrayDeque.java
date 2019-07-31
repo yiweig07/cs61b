@@ -23,7 +23,7 @@ public class ArrayDeque<T> {
 	}
 	
 	private void resizeArray() {
-		T[] array1 = (T[]) new Object[(int) (size * 1.5)];
+		T[] array1 = (T[]) new Object[(int) (size * 2)];
 		nextFirst = addOne(nextFirst);
 		for(int i = 0; i < size; i ++) {
 			array1[i] = array[nextFirst];
@@ -105,6 +105,7 @@ public class ArrayDeque<T> {
 	}
 	
 	private void desizeArray() {
+		if(array.length > 8) {
 		T[] array1 = (T[]) new Object[(int) (array.length/ 2)];
 		nextFirst = addOne(nextFirst);
 		for(int i = 0; i < size; i ++) {
@@ -114,6 +115,8 @@ public class ArrayDeque<T> {
 		array = array1;
 		nextFirst = array.length -1;
 		nextLast = size;
+		}
+		return;
 	}
 
 	public T get(int index) {
