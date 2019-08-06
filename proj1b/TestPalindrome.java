@@ -1,4 +1,3 @@
-
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -16,6 +15,7 @@ public class TestPalindrome {
 		}
 		assertEquals("persiflage", actual);
 	}
+
 	@Test
 	public void testIsPalindrome() {
 		assertFalse(palindrome.isPalindrome("aaaba"));
@@ -28,9 +28,10 @@ public class TestPalindrome {
 		assertTrue(palindrome.isPalindrome("noon"));
 		assertTrue(palindrome.isPalindrome(""));
 	}
+
 	@Test
 	public void testIsPalindromeOffByOne() {
-		CharacterComparator cc = new OffByOne(); 
+		CharacterComparator cc = new OffByOne();
 		assertFalse(palindrome.isPalindrome("abc", cc));
 		assertFalse(palindrome.isPalindrome("aa", cc));
 		assertFalse(palindrome.isPalindrome("Aa", cc));
