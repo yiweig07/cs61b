@@ -30,6 +30,9 @@ public class GuitarString {
         //       double r = Math.random() - 0.5;
         //
         //       Make sure that your random numbers are different from each other.
+        if (buffer == null || buffer.capacity() == 0){
+            throw new RuntimeException("Ring buffer underflow");
+        }
         if (buffer.fillCount() != 0) {
             for (int i = 0; i < buffer.fillCount(); i++) {
                 buffer.dequeue();
@@ -57,7 +60,7 @@ public class GuitarString {
     /* Return the double at the front of the buffer. */
     public double sample() {
         //   Return the correct thing.
-        if (buffer == null || buffer.fillCount() == 0){
+        if (buffer == null || buffer.capacity() == 0){
             throw new RuntimeException("Ring buffer underflow");
         }
         return buffer.peek();
