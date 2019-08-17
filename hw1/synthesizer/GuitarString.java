@@ -57,6 +57,9 @@ public class GuitarString {
     /* Return the double at the front of the buffer. */
     public double sample() {
         //   Return the correct thing.
+        if (buffer == null || buffer.fillCount() == 0){
+            throw new RuntimeException("Ring buffer underflow");
+        }
         return buffer.peek();
     }
 }
