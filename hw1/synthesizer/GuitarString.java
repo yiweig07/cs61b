@@ -20,6 +20,9 @@ public class GuitarString {
         //       accuracy, use the Math.round() function before casting.
         //       Your buffer should be initially filled with zeros.
         buffer = new ArrayRingBuffer<>((int) Math.round(SR / frequency));
+        for(int i = 0; i< buffer.capacity(); i++){
+            buffer.enqueue(0.0);
+        }
     }
 
 
@@ -30,15 +33,8 @@ public class GuitarString {
         //       double r = Math.random() - 0.5;
         //
         //       Make sure that your random numbers are different from each other.
-        if (buffer == null || buffer.capacity() == 0){
-            throw new RuntimeException("Ring buffer underflow");
-        }
-        if (buffer.fillCount() != 0) {
-            for (int i = 0; i < buffer.fillCount(); i++) {
-                buffer.dequeue();
-            }
-        }
         for (int i = 0; i < buffer.capacity(); i++) {
+            buffer.dequeue();
             double r = Math.random() - 0.5;
             buffer.enqueue(r);
         }

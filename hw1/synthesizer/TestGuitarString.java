@@ -17,9 +17,14 @@ public class TestGuitarString {
         double CONCERT_A = 440.0;
         GuitarString aString = new GuitarString(CONCERT_A);
         aString.pluck();
-        for (int i = 0; i < 50000; i += 1) {
+        double CONCERT_b = 200.0;
+        GuitarString bString = new GuitarString(CONCERT_b);
+        bString.pluck();
+        for (int i = 0; i < 500000; i += 1) {
             StdAudio.play(aString.sample());
             aString.tic();
+            StdAudio.play(bString.sample());
+            bString.tic();
         }
     }
 
